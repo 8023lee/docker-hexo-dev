@@ -1,0 +1,6 @@
+version: '2'
+services:
+    hexo:
+        image: hexo_hexo:latest
+        volumes:
+            - ${X_HEXO_SOURCE_CODE}:/code
