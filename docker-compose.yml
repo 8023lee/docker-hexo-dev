@@ -1,6 +1,15 @@
 version: '2'
 services:
     hexo:
-        image: hexo_hexo:latest
+        build:
+            context: .
+            dockerfile: ./hexo/Dockerfile
+            args:
+                X_GID: ${X_GID}
+                X_UID: ${X_UID}
+        environment:
+            npm_config_cache: /run/npm-cache
         volumes:
             - ${X_HEXO_SOURCE_CODE}:/code
+            - $HOME/.npm:/run/npm-cache
+        tty: true
