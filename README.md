@@ -1,6 +1,15 @@
 # myhexo
 
-npm install 报错
+1、运行服务直接退出
+```
+Creating network "hexo_default" with the default driver
+Creating hexo_hexo_1 ... done
+Attaching to hexo_hexo_1
+hexo_hexo_1 exited with code 0
+```
+docker-compose.yml添加tty解决，容器需要保持一个前台运行的程序
+
+2、npm install 报错
 
 ```
 npm WARN checkPermissions Missing write access to /usr/local/lib/node_modules
