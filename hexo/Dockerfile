@@ -11,4 +11,6 @@ RUN set -eux; \
     fi; \
     adduser --system --disabled-password -u ${X_UID} -g ${X_GID} xu
 
+RUN chown -R xu:$X_GID /usr/local/lib/node_modules
+
 WORKDIR /code

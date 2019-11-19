@@ -12,3 +12,4 @@ services:
         volumes:
             - ${X_HEXO_SOURCE_CODE}:/code
             - $HOME/.npm:/run/npm-cache
+        tty: true
