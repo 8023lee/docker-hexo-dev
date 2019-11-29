@@ -1,15 +1,9 @@
 version: '2'
 services:
     hexo:
-        build:
-            context: .
-            dockerfile: ./hexo/Dockerfile
-            args:
-                X_GID: ${X_GID}
-                X_UID: ${X_UID}
-        environment:
-            npm_config_cache: /run/npm-cache
+        image: node
         volumes:
-            - ${X_HEXO_SOURCE_CODE}:/code
-            - $HOME/.npm:/run/npm-cache
+            - ../hexo:/code
+        ports:
+            - 4000:4000
         tty: true
