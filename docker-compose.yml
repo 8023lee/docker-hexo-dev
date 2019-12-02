@@ -1,4 +1,7 @@
 version: '2'
+networks:
+    traefik_default:
+        external: true
 services:
     hexo:
         image: node
@@ -6,4 +9,15 @@ services:
             - ../hexo:/code
         ports:
             - 4000:4000
+        tty: true
+    nginx:
+        build:
+            context: .
+            dockerfile: ./nginx/Dockerfile
+        volumes:
+            - ../hexo:/code
+        networks:
+            - traefik_default
+        labels:
+            - traefik.http.routers.hexo.rule=HOST(`jiawei.com`)
         tty: true
