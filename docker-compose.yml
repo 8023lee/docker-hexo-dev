@@ -3,7 +3,7 @@ networks:
     traefik_default:
         external: true
 services:
-    hexo:
+    node:
         image: node
         volumes:
             - ../hexo:/code
@@ -19,5 +19,5 @@ services:
         networks:
             - traefik_default
         labels:
-            - traefik.http.routers.hexo.rule=HOST(`jiawei.com`)
+            - traefik.http.routers.hexo.rule=HOST(`myhexo.com`)
         tty: true
