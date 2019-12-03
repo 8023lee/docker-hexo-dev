@@ -14,10 +14,12 @@ services:
         build:
             context: .
             dockerfile: ./nginx/Dockerfile
+            args:
+                DOMAIN: ${DOMAIN}
         volumes:
             - ../hexo:/code
         networks:
             - traefik_default
         labels:
-            - traefik.http.routers.hexo.rule=HOST(`myhexo.com`)
+            - traefik.http.routers.hexo.rule=HOST(`${DOMAIN}`)
         tty: true
