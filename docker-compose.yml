@@ -17,7 +17,7 @@ services:
             args:
                 DOMAIN: ${DOMAIN}
         volumes:
-            - ../hexo:/code
+            - ${HEXO_SOURCE_CODE}:/code
         networks:
             - traefik_default
         labels:
