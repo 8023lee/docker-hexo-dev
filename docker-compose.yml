@@ -6,7 +6,7 @@ services:
     node:
         image: node
         volumes:
-            - ../hexo:/code
+            - ${HEXO_SOURCE_CODE}:/code
         ports:
             - 4000:4000
         tty: true
